@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/Shivank12batra/Whatsapp-Attendance-Automation-Bot#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "mongoose": "^6.9.0",
     "puppeteer": "^19.6.2",
     "puppeteer-extra": "^3.3.4",
     "puppeteer-extra-plugin-recaptcha": "^3.6.6"
