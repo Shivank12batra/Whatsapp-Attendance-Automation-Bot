@@ -1,0 +1,24 @@
+{
+  "name": "wa-attendance-chatbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shivank12batra/Whatsapp-Attendance-Automation-Bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shivank12batra/Whatsapp-Attendance-Automation-Bot/issues"
+  },
+  "homepage": "https://github.com/Shivank12batra/Whatsapp-Attendance-Automation-Bot#readme",
+  "dependencies": {
+    "puppeteer": "^19.6.2",
+    "puppeteer-extra": "^3.3.4",
+    "puppeteer-extra-plugin-recaptcha": "^3.6.6"
+  }
+}
