@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const crypto = require('crypto');
 
 const UserSchema = new mongoose.Schema({
     name: {
@@ -33,9 +34,14 @@ const UserSchema = new mongoose.Schema({
     }
 })
 
+// UserSchema.pre('save', async function() {
+//     const salt = await bcrypt.genSalt(10)
+//     this.password = await bcrypt.hash(this.password, salt)
+//   })
 UserSchema.pre('save', async function() {
-    const salt = await bcrypt.genSalt(10)
-    this.password = await bcrypt.hash(this.password, salt)
-  })
+    const cipher = crypto.createCipheriv('aes-256-cbc', process.env.ENCRYPT_KEY, process.env.IV);
+    this.password = cipher.update(this.password, 'utf8', 'hex');
+    this.password += cipher.final('hex');  
+})
 
 module.exports = mongoose.model('User', UserSchema)

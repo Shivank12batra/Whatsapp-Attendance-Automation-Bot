@@ -23,8 +23,6 @@ const getAttendanceData = async(userName, password) => {
         const page = await browser.newPage();
         await page.goto(loginPage);
         // login credentials
-        // const userName = 'shivank.202203@sggscc.ac.in';
-        // const password = '202203';
         console.log('page loading done!');
         // Fill in the login form and select the student radio button
         // await page.evaluate(b => b.click('#loginForm input[value=STUDENT]'));
