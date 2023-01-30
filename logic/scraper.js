@@ -10,7 +10,7 @@ const getAttendanceData = async(userName, password) => {
             RecaptchaPlugin({
                 provider: {
                     id: '2captcha',
-                    token: process.env.CATPCHA_KEY,
+                    token: `${process.env.CATPCHA_KEY}`,
                     // token: 'c2f8c49a5952770a638ac845691ef68a' // REPLACE THIS WITH YOUR OWN 2CAPTCHA API KEY ⚡
                 },
                 visualFeedback: true // colorize reCAPTCHAs (violet = detected, green = solved)

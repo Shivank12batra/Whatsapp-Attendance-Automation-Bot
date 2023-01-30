@@ -1,11 +1,8 @@
 require('dotenv').config();
-const qrcode = require('qrcode-terminal')
-const { Client, LocalAuth } = require('whatsapp-web.js')
-const crypto = require('crypto')
 
 const connectDB = require('./db/connect')
 const User = require('./models/User')
-const generateMessage = require('./logic/message')
+const sendMessage = require('./logic/whatsapp')
 
 const start = async () => {
     try {
@@ -16,14 +13,15 @@ const start = async () => {
         // })
         const users = await User.find({})
         for (user of users) {
-            await generateMessage(user.name, user.contactNumber, user.email, user.password)
-            console.log(user)
+            await sendMessage(user.name, user.contactNumber, user.email, user.password)
+            console.log('Message send successfully!')
         }
         // users.map((user) => {
         //     sendMessage(user.name, user)
         // })
     } catch (error) {
         console.log(error)
+        console.log('Something went wrong!')
     }
 } 
 
