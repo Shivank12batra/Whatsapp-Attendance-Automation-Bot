@@ -36,7 +36,7 @@ const sendMessage = async(userName, contactNumber, email, encryptedPassword) => 
                 await client.sendMessage(number_details._serialized, messageData.msg1); //send message
                 await client.sendMessage(number_details._serialized, messageData.msg2); //send message
                 await client.sendMessage(number_details._serialized, messageData.msg3); //send message
-                console.log('message send successfully!')
+                console.log('all messages send successfully!')
             } else {
                 console.log(final_number, "Mobile number is not registered");
             }
