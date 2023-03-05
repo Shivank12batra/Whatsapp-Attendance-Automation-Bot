@@ -1,8 +1,7 @@
 const generateMessage = (name, attendanceData, automatedMessageData) => {
     const messageData = {
         'msg1' : `Hola ${name}! Here is your bi-weekly attendance report:\n Current Attendance:`,
-        'msg2' : 'Number of classes that you need to attend from the next 10 to reach a certain % (33, 50, 75, 90) attendance:',
-        'msg3' : 'In case you want to unsubscribe from the bot, simply type: "STOP"'
+        'msg2' : 'Number of classes that you need to attend from the next 10 to reach a certain % (33, 50, 75, 90) attendance:'
     };
 
     attendanceData.map((data) => {

@@ -1,4 +1,5 @@
 require('dotenv').config();
+const cron = require('node-cron');
 
 const connectDB = require('./db/connect')
 const User = require('./models/User')
@@ -12,9 +13,8 @@ const start = async () => {
         //     console.log(users)
         // })
         const users = await User.find({})
-        for (user of users) {
+        for (const user of users) {
             await sendMessage(user.name, user.contactNumber, user.email, user.password)
-            console.log('Message send successfully!')
         }
         // users.map((user) => {
         //     sendMessage(user.name, user)
@@ -25,4 +25,16 @@ const start = async () => {
     }
 } 
 
+// cron.schedule('33 0 * * 0', () => {
+//     start()
+//     console.log('Running script at 12:15am every Sunday');
+// });
+// cron.schedule('*/6 * * * *', () => {
+//   start()
+//   console.log('Running task every 6 minutes');
+//   // Your script code goes here
+// });
+
 start()
+
+  

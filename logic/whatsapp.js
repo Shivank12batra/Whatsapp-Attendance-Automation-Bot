@@ -12,7 +12,7 @@ const sendMessage = async(userName, contactNumber, email, encryptedPassword) => 
         console.log(messageData)
         // sending message using whatsapp-web.js
         const client = new Client({
-            authStrategy: new LocalAuth()
+            authStrategy: new LocalAuth(),
         });
         client.initialize();
           
@@ -33,10 +33,14 @@ const sendMessage = async(userName, contactNumber, email, encryptedPassword) => 
             const number_details = await client.getNumberId(final_number); // get mobile number details
             console.log(number_details)
             if (number_details) {
-                await client.sendMessage(number_details._serialized, messageData.msg1); //send message
-                await client.sendMessage(number_details._serialized, messageData.msg2); //send message
-                await client.sendMessage(number_details._serialized, messageData.msg3); //send message
-                console.log('all messages send successfully!')
+                try {
+                    await client.sendMessage(number_details._serialized, messageData.msg1); //send message
+                    await client.sendMessage(number_details._serialized, messageData.msg2); //send message
+                    await client.sendMessage(number_details._serialized, messageData.msg3); //send message
+                    console.log('all messages send successfully!')
+                } catch (error) {
+                    console.log(error)
+                }
             } else {
                 console.log(final_number, "Mobile number is not registered");
             }
@@ -48,3 +52,9 @@ const sendMessage = async(userName, contactNumber, email, encryptedPassword) => 
 }
 
 module.exports = sendMessage;
+
+// process.on("SIGINT", async () => {
+//     console.log("(SIGINT) Shutting down...");
+//     await client.destroy();
+//     process.exit(0);
+// })
