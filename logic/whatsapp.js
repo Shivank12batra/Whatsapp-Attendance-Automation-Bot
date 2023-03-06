@@ -3,6 +3,7 @@ const { Client, LocalAuth } = require('whatsapp-web.js')
 const decrypt = require('./decrypt')
 const getMessagesData = require('./calculate')
 const generateMessage = require('./message')
+  
 
 const sendMessage = async(userName, contactNumber, email, encryptedPassword) => {
     try {
@@ -36,8 +37,12 @@ const sendMessage = async(userName, contactNumber, email, encryptedPassword) => 
                 try {
                     await client.sendMessage(number_details._serialized, messageData.msg1); //send message
                     await client.sendMessage(number_details._serialized, messageData.msg2); //send message
-                    await client.sendMessage(number_details._serialized, messageData.msg3); //send message
                     console.log('all messages send successfully!')
+                    const delay =(ms) => {
+                        return new Promise(resolve => setTimeout(resolve, ms));
+                      }
+                    await delay(5000)
+                    await client.destroy()
                 } catch (error) {
                     console.log(error)
                 }
@@ -52,9 +57,3 @@ const sendMessage = async(userName, contactNumber, email, encryptedPassword) => 
 }
 
 module.exports = sendMessage;
-
-// process.on("SIGINT", async () => {
-//     console.log("(SIGINT) Shutting down...");
-//     await client.destroy();
-//     process.exit(0);
-// })
