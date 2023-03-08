@@ -26,7 +26,7 @@ const generateMessage = (name, attendanceData, automatedMessageData) => {
             }
         })
     })
-    console.log(messageData)
+    // console.log(messageData)
     return messageData
 }
 
