@@ -10,7 +10,7 @@ const start = async () => {
     try {
         await connectDB(process.env.MONGO_URI)
         console.log('Database connection done!')
-        const users = await User.find({})
+        let users = await User.find({})
         for (const user of users) {
             await sendMessage(user.name, user.contactNumber, user.email, user.password)
         }

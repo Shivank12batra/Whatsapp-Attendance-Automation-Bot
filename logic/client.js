@@ -32,15 +32,18 @@ const whatsappMessage = async(contactNumber, messageData) => {
         console.log(number_details)
         if (number_details) {
             try {
+                console.log(messageData)
                 await client.sendMessage(number_details._serialized, messageData.msg1); //send message
                 const delay =(ms) => {
                     return new Promise(resolve => setTimeout(resolve, ms));
                   }
-                await delay(5000)
-                console.log(messageData)
                 console.log('message 1 sent')
+                await delay(5000)
                 await client.sendMessage(number_details._serialized, messageData.msg2); //send message
                 console.log('message 2 sent')
+                await delay(5000)
+                await client.sendMessage(number_details._serialized, messageData.msg3);
+                console.log('message 3 sent successfully!')
                 console.log('all messages send successfully!')
                 await delay(5000)
                 await client.destroy()

@@ -4,7 +4,7 @@ const getAttendanceData = require('./scraper.js')
 const getMessagesData = async(userName, password) => {
     try {
         const classes = 10;
-        const percentages = [33, 50, 75, 90];
+        const percentages = [33, 50, 67, 85];
         const automatedMessageData = [];
         const attendanceData = await getAttendanceData(userName, password);
         console.log(attendanceData);
@@ -16,7 +16,7 @@ const getMessagesData = async(userName, password) => {
             const totalClasses = Number(subject[`${currentSubject}`].fraction.split('/')[1]);
             const classesPresent = Number(subject[`${currentSubject}`].fraction.split('/')[0]);
             const futureClasses = totalClasses + classes;
-            for (percentage of percentages) {
+            for (const percentage of percentages) {
                 console.log(percentage);
                 const required = Math.floor(percentage/100 * (futureClasses)) - classesPresent;
                 console.log(required); 
