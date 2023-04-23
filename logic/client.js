@@ -1,7 +1,8 @@
 const qrcode = require('qrcode-terminal')
 const { Client, LocalAuth } = require('whatsapp-web.js')
+const delay = require('./delay')
 
-const whatsappMessage = async(contactNumber, messageData) => {
+const sendMessage = async(contactNumber, messageData) => {
     const client = new Client({
         authStrategy: new LocalAuth(),
     });
@@ -34,9 +35,9 @@ const whatsappMessage = async(contactNumber, messageData) => {
             try {
                 console.log(messageData)
                 await client.sendMessage(number_details._serialized, messageData.msg1); //send message
-                const delay =(ms) => {
-                    return new Promise(resolve => setTimeout(resolve, ms));
-                  }
+                // const delay =(ms) => {
+                //     return new Promise(resolve => setTimeout(resolve, ms));
+                //   }
                 console.log('message 1 sent')
                 await delay(5000)
                 await client.sendMessage(number_details._serialized, messageData.msg2); //send message
@@ -57,4 +58,4 @@ const whatsappMessage = async(contactNumber, messageData) => {
     console.log('function processing ended!')
 }
 
-module.exports = whatsappMessage
+module.exports = sendMessage

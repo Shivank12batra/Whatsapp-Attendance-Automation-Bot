@@ -22,14 +22,7 @@ const getMessagesData = async(userName, password) => {
                 console.log(required); 
                 data[`${currentSubject}`] = {...data[`${currentSubject}`], [`${percentage}`] : required}
             }
-            // percentages.map((percentage) => {
-            //     console.log(percentage);
-            //     const required = Math.floor(percentage/100 * (futureClasses)) - classesPresent;
-            //     console.log(required); 
-            //     data[`${currentSubject}`] = {[`${percentage}`] : required}
-            // })
             automatedMessageData.push(data);
-            // const presentsRequired_33 = percentage[0]
         })
         console.log(automatedMessageData);
         return {attendanceData, automatedMessageData};
