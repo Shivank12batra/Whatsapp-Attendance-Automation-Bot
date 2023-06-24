@@ -15,7 +15,7 @@ A Whatsapp bot which weekly sends automated attendance reports to the students o
 
 ## Attendance Report Sample:
 
-![sample message](https://imgur.com/JR8HNsP)
+![Sample Message](https://i.imgur.com/JR8HNsP.jpg)
 
 ## How It Works:
 
