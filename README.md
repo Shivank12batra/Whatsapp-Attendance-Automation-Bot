@@ -23,6 +23,10 @@ First, I created a simple frontend bot registeration page, where the college stu
 
 Then the scripts is scheduled to run weekly on Monday which loops over the users registered with the bot i.e. stored in the database, and then scrapes their data fromt their individual private url on the college website. This is done via web scraping. Once, the attendance data is attained, functions are called to process the data and convert it into an object with the required details. Finally, these message objects are sent over and consumed via the whatsapp-web.js through which the messages are delivered to the students on their registered phone number.
 
+### Visual Representation:
+
+![App Flow](flow.png)
+
 ## Tech Stack Used
 
 - Node.js
